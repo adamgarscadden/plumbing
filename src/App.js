@@ -4,8 +4,7 @@ import { useSelector } from "react-redux";
 import ProductItem from "./components/ProductItem";
 import PageError from "./components/PageError";
 import LoadingSpinner from "./components/LoadingSpinner";
-import ProductSelector from "./components/ProductSelector";
-import ProductSort from "./components/ProductSort";
+import PageHeader from "./components/PageHeader";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -42,20 +41,7 @@ const App = () => {
 
   return (
     <div className="p-4">
-      <header className="mt-5">
-        <h1 className="text-5xl font-bold text-gray-900 w-full m-auto mb-3 text-center">
-          🚽 Toilets
-        </h1>
-        <p className="mb-10 w-3/4 text-center m-auto">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
-          nesciunt ex atque iste est, nam asperiores dignissimos iusto earum, id
-          sapiente sunt sequi ullam autem beatae! Nesciunt vero deleniti optio?
-        </p>
-        <div className="flex w-1/2">
-          <ProductSelector />
-          <ProductSort />
-        </div>
-      </header>
+      <PageHeader />
       <main>
         <PageError error={error} />
         <LoadingSpinner data={data} />
