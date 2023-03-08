@@ -47,6 +47,9 @@ const App = () => {
         </p>
       </header>
       <main>
+        <div className="mt-5">
+          <p className="text-center w-full text-red-400 font-bold">{error}</p>
+        </div>
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
           {data?.products?.map((product) => (
             <article className="bg-gray-100 p-4" key={product.id}>
