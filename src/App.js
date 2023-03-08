@@ -39,9 +39,6 @@ const App = () => {
     window.scrollTo({ top: 0 });
   }, [productSelector, productSort, page]);
 
-  console.log("data", data);
-  console.log("error", error);
-
   return (
     <div className="p-4">
       <PageHeader />
