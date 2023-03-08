@@ -9,7 +9,7 @@ A project using the Victorian Plumbing api to display different products, catego
 - Add facet filtering (sidebar)
 - Use redux saga for handling api
 	- Or at least move api call from main App component
-- Use Typecrip
+- Use Typecript
 
 ## Available Scripts
 
