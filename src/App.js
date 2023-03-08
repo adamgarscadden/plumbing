@@ -3,6 +3,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import ProductItem from "./components/ProductItem";
 import PageError from "./components/PageError";
+import LoadingSpinner from "./components/LoadingSpinner";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -37,7 +38,7 @@ const App = () => {
   console.log("error", error);
 
   return (
-    <div className="App">
+    <div className="">
       <header className="mt-5">
         <h1 className="text-5xl font-bold text-gray-900 w-full m-auto mb-3 text-center">
           🚽 Toilets
@@ -50,6 +51,7 @@ const App = () => {
       </header>
       <main>
         <PageError error={error} />
+        <LoadingSpinner data={data} />
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
           {data?.products?.map((product) => (
             <ProductItem product={product} />
