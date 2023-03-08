@@ -2,7 +2,7 @@ import React from "react";
 
 const ProductItem = ({ product }) => {
   return (
-    <article className="bg-gray-100 p-4" key={product.id}>
+    <article className="bg-gray-100 p-4">
       <img
         src={product.image.url}
         alt={product.productName}
