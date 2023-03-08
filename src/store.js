@@ -4,7 +4,7 @@ const slice = createSlice({
   name: "product",
   initialState: { productSelector: "toilets" },
   reducers: {
-    productSelector: (state, action) => {
+    changeProductSelector: (state, action) => {
       state.productSelector = action.payload;
     },
   },
@@ -16,5 +16,5 @@ export const store = configureStore({
   },
 });
 
-export const { productSelector } = slice.actions;
+export const { changeProductSelector } = slice.actions;
 export default slice.reducer;

@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import ProductItem from "./components/ProductItem";
 import PageError from "./components/PageError";
 import LoadingSpinner from "./components/LoadingSpinner";
+import ProductSelector from "./components/ProductSelector";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -32,7 +33,7 @@ const App = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [productSelector]);
 
   console.log("data", data);
   console.log("error", error);
@@ -48,6 +49,9 @@ const App = () => {
           nesciunt ex atque iste est, nam asperiores dignissimos iusto earum, id
           sapiente sunt sequi ullam autem beatae! Nesciunt vero deleniti optio?
         </p>
+        <div className="flex">
+          <ProductSelector />
+        </div>
       </header>
       <main>
         <PageError error={error} />
