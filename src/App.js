@@ -5,11 +5,13 @@ import ProductItem from "./components/ProductItem";
 import PageError from "./components/PageError";
 import LoadingSpinner from "./components/LoadingSpinner";
 import ProductSelector from "./components/ProductSelector";
+import ProductSort from "./components/ProductSort";
 
 const App = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState([]);
   const productSelector = useSelector((state) => state.product.productSelector);
+  const productSort = useSelector((state) => state.product.productSort);
 
   const fetchData = async () => {
     const endpoint =
@@ -20,7 +22,7 @@ const App = () => {
       pageNumber: 1,
       size: 0,
       additionalPages: 0,
-      sort: 1,
+      sort: productSort,
     };
 
     try {
@@ -33,13 +35,13 @@ const App = () => {
 
   useEffect(() => {
     fetchData();
-  }, [productSelector]);
+  }, [productSelector, productSort]);
 
   console.log("data", data);
   console.log("error", error);
 
   return (
-    <div className="">
+    <div className="p-4">
       <header className="mt-5">
         <h1 className="text-5xl font-bold text-gray-900 w-full m-auto mb-3 text-center">
           🚽 Toilets
@@ -49,8 +51,9 @@ const App = () => {
           nesciunt ex atque iste est, nam asperiores dignissimos iusto earum, id
           sapiente sunt sequi ullam autem beatae! Nesciunt vero deleniti optio?
         </p>
-        <div className="flex">
+        <div className="flex w-1/2">
           <ProductSelector />
+          <ProductSort />
         </div>
       </header>
       <main>
