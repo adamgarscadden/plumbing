@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changeProductSort } from "../store";
+import { changeProductSort, changePageNumber } from "../store";
 
 const ProductSort = () => {
   const dispatch = useDispatch();
@@ -8,6 +8,7 @@ const ProductSort = () => {
 
   const handleSort = (event) => {
     dispatch(changeProductSort(event.target.value));
+    dispatch(changePageNumber(1));
   };
 
   return (

@@ -17,7 +17,7 @@ const PageHeader = () => {
         nesciunt ex atque iste est, nam asperiores dignissimos iusto earum, id
         sapiente sunt sequi ullam autem beatae! Nesciunt vero deleniti optio?
       </p>
-      <div className="flex w-1/2">
+      <div className="flex w-1/2 m-auto">
         <ProductSelector />
         <ProductSort />
       </div>

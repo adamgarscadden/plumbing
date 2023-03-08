@@ -5,12 +5,14 @@ import ProductItem from "./components/ProductItem";
 import PageError from "./components/PageError";
 import LoadingSpinner from "./components/LoadingSpinner";
 import PageHeader from "./components/PageHeader";
+import PageFooter from "./components/PageFooter";
 
 const App = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState([]);
   const productSelector = useSelector((state) => state.product.productSelector);
   const productSort = useSelector((state) => state.product.productSort);
+  const page = useSelector((state) => state.product.pagination);
 
   const fetchData = async () => {
     const endpoint =
@@ -18,7 +20,7 @@ const App = () => {
 
     const params = {
       query: productSelector,
-      pageNumber: 1,
+      pageNumber: page,
       size: 0,
       additionalPages: 0,
       sort: productSort,
@@ -34,7 +36,8 @@ const App = () => {
 
   useEffect(() => {
     fetchData();
-  }, [productSelector, productSort]);
+    window.scrollTo({ top: 0 });
+  }, [productSelector, productSort, page]);
 
   console.log("data", data);
   console.log("error", error);
@@ -51,7 +54,7 @@ const App = () => {
           ))}
         </section>
       </main>
-      <footer>Pagination goes here</footer>
+      <PageFooter data={data} />
     </div>
   );
 };
