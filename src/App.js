@@ -36,7 +36,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="mt-5">
         <h1 className="text-5xl font-bold text-gray-900 w-full m-auto mb-3 text-center">
           🚽 Toilets
         </h1>
@@ -47,26 +47,29 @@ const App = () => {
         </p>
       </header>
       <main>
-        {data?.products?.map((product) => (
-          <article className="bg-gray-100 p-4" key={product.id}>
-            <img
-              src={product.image.url}
-              alt={product.productName}
-              className="w-full"
-            />
-            <div className="flex flex-col content-between">
-              <h2 className="text-1xl font-bold text-gray-900  mt-3">
-                {product.productName}
-              </h2>
-              <h3 className="mt-5 text-2xl">£{product.price.priceIncTax}</h3>
-              <h4 className="mt-5 text-1xl">
-                {product.stockStatus.status === "G" && "In Stock"}
-                {product.stockStatus.status !== "G" && "Out Of Stock"}
-              </h4>
-            </div>
-          </article>
-        ))}
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
+          {data?.products?.map((product) => (
+            <article className="bg-gray-100 p-4" key={product.id}>
+              <img
+                src={product.image.url}
+                alt={product.productName}
+                className="w-full"
+              />
+              <div className="flex flex-col content-between">
+                <h2 className="text-1xl font-bold text-gray-900  mt-3">
+                  {product.productName}
+                </h2>
+                <h3 className="mt-5 text-2xl">£{product.price.priceIncTax}</h3>
+                <h4 className="mt-5 text-1xl">
+                  {product.stockStatus.status === "G" && "In Stock"}
+                  {product.stockStatus.status !== "G" && "Out Of Stock"}
+                </h4>
+              </div>
+            </article>
+          ))}
+        </section>
       </main>
+      <footer>Pagination goes here</footer>
     </div>
   );
 };
