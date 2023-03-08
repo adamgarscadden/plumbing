@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const App = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState([]);
+  const productSelector = useSelector((state) => state.product.productSelector);
 
   const fetchData = async () => {
     const endpoint =
       "https://spanishinquisition.victorianplumbing.co.uk/interviews/listings?apikey=yj2bV48J40KsBpIMLvrZZ1j1KwxN4u3A83H8IBvI";
 
     const params = {
-      query: "toilets",
+      query: productSelector,
       pageNumber: 1,
       size: 0,
       additionalPages: 0,
