@@ -10,6 +10,7 @@ A project using the Victorian Plumbing api to display different products, catego
 - Use redux saga for handling api
 	- Or at least move api call from main App component
 - Use Typescript
+- Use Page routing
 
 ## Available Scripts
 
