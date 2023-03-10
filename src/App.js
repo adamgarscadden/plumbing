@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 import ProductItem from "./components/ProductItem";
 import PageError from "./components/PageError";
 import LoadingSpinner from "./components/LoadingSpinner";
-import PageHeader from "./components/PageHeader";
-import PageFooter from "./components/PageFooter";
+import PageHeader from "./components/header/PageHeader";
+import PageFooter from "./components/footer/PageFooter";
 
 const App = () => {
   const [data, setData] = useState([]);

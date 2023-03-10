@@ -1,10 +1,27 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import ProductSelector from "./ProductSelector";
-import ProductSort from "./ProductSort";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  changeProductSelector,
+  changePageNumber,
+  changeProductSort,
+} from "../../store";
+
+import ProductFilter from "./ProductFilter";
 
 const PageHeader = () => {
+  const dispatch = useDispatch();
   const productSelector = useSelector((state) => state.product.productSelector);
+  const productSort = useSelector((state) => state.product.productSort);
+
+  const handleProduct = (event) => {
+    dispatch(changeProductSelector(event));
+    dispatch(changePageNumber(1));
+  };
+
+  const handleSort = (event) => {
+    dispatch(changeProductSort(event));
+    dispatch(changePageNumber(1));
+  };
 
   return (
     <header className="mt-5">
@@ -18,8 +35,16 @@ const PageHeader = () => {
         sapiente sunt sequi ullam autem beatae! Nesciunt vero deleniti optio?
       </p>
       <div className="flex w-1/2 m-auto">
-        <ProductSelector />
-        <ProductSort />
+        <ProductFilter
+          val={productSelector}
+          onChange={handleProduct}
+          category="product"
+        />
+        <ProductFilter
+          val={productSort}
+          onChange={handleSort}
+          category="sort"
+        />
       </div>
     </header>
   );

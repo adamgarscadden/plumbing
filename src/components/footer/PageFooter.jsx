@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changePageDecrement, changePageIncrement } from "../store";
+import { changePageDecrement, changePageIncrement } from "../../store";
 import PageFooterButton from "./PageFooterButton";
 
 const PageFooter = ({ data }) => {
@@ -9,26 +9,26 @@ const PageFooter = ({ data }) => {
 
   if (!data.products) return null;
 
-  function handleButton(eventData) {
-    if (eventData === "Previous") {
+  const handleButton = (event) => {
+    if (event === "previous") {
       dispatch(changePageDecrement());
     }
-    if (eventData === "Next") {
+    if (event === "next") {
       dispatch(changePageIncrement());
     }
-  }
+  };
 
   return (
     <div className="mt-5 flex justify-items-center items-center">
       {page !== 1 && (
         <PageFooterButton
-          value="Previous"
+          value="previous"
           buttonText="Previous Page"
           onClick={handleButton}
         />
       )}
       <PageFooterButton
-        value="Next"
+        value="next"
         buttonText="Next Page"
         onClick={handleButton}
       />
