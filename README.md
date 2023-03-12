@@ -1,6 +1,6 @@
-# Victorian Plumbing
+# Plumbing
 
-A project using the Victorian Plumbing api to display different products, categories and filters.
+A project using an api to display different products, categories and filters.
 
 ## Todo
 - Add unit tests
